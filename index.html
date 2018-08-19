@@ -1,0 +1,58 @@
+<html>
+<head>
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<title>中国八大指数交易额统计</title>
+<meta http-equiv="refresh" content="45;url=wordpress">   
+</head>
+<body>
+<center><h3>中国八大指数交易额统计</h3></center>
+<center><a class="btn btn-default" href="/" role="button" >立即刷新</a></center>
+<center><h5 id="time">
+		<script type="text/javascript">
+			var t=new Date(); 
+			
+			document.getElementById("time").innerHTML="刷新时间:"+t; 
+		</script>
+</h5></center>
+<table class="table table-hover">
+	<thead>
+	<tr>
+		<th>日期</th>
+		<th>上证指数</th>
+		<th>沪深300</th>
+		<th>上证50 </th>
+		<th>中证500 </th>
+		<th>深证成指 </th>
+		<th>深证100 </th>
+		<th>中小板指</th>
+		<th>创业板指</th>
+	</tr>
+	</thead>
+	<tbody>
+	{{range .RS}}
+
+	<tr>
+		<td>{{ .Date }}</td>
+		<td>{{ .Szzs }}</td>
+		<td>{{ .Hs300 }}</td>
+		<td>{{ .Sz50}} </td>
+		<td>{{ .Zz500 }} </td>
+		<td>{{ .Szcz }} </td>
+		<td>{{ .Sz100 }} </td>
+		<td>{{ .Zxbz }} </td>
+		<td>{{ .Cybz }} </td>
+	</tr>
+
+
+{{else}}<div>
+	<strong>no records</strong>
+</div>
+{{end}}
+</tbody>
+</table>
+</body>
+</html>
